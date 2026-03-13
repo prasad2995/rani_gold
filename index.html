@@ -29,111 +29,75 @@
 
   h1.brand {
     font-family: 'Cinzel', serif;
-    font-size: 1.9rem;
-    color: var(--gold-light);
-    letter-spacing: 0.3em;
-    text-align: center;
+    font-size: 1.9rem; color: var(--gold-light);
+    letter-spacing: 0.3em; text-align: center;
     margin: 20px 0 2px;
     text-shadow: 0 0 30px rgba(201,168,76,0.5);
   }
   .subtitle {
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    text-align: center;
-    margin-bottom: 22px;
-    text-transform: uppercase;
+    font-size: 0.8rem; letter-spacing: 0.2em;
+    color: var(--gold); text-align: center;
+    margin-bottom: 22px; text-transform: uppercase;
   }
-
   #status-bar {
     width: 100%; max-width: 420px;
     background: rgba(201,168,76,0.07);
     border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 10px;
-    padding: 10px 16px;
-    font-size: 0.8rem;
-    color: var(--gold);
-    text-align: center;
-    letter-spacing: 0.04em;
-    margin-bottom: 14px;
-    min-height: 38px;
-    line-height: 1.4;
+    border-radius: 10px; padding: 10px 16px;
+    font-size: 0.8rem; color: var(--gold);
+    text-align: center; letter-spacing: 0.04em;
+    margin-bottom: 14px; min-height: 38px; line-height: 1.4;
   }
-
   .btn-fetch {
-    width: 100%; max-width: 420px;
-    padding: 13px;
+    width: 100%; max-width: 420px; padding: 13px;
     background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold));
     border: none; border-radius: 10px;
-    font-family: 'Cinzel', serif;
-    font-size: 0.82rem; font-weight: 700;
-    letter-spacing: 0.18em;
-    color: var(--deep);
-    cursor: pointer;
-    transition: opacity 0.2s, transform 0.1s;
-    margin-bottom: 14px;
+    font-family: 'Cinzel', serif; font-size: 0.82rem; font-weight: 700;
+    letter-spacing: 0.18em; color: var(--deep);
+    cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-bottom: 14px;
   }
   .btn-fetch:hover { opacity: 0.9; transform: translateY(-1px); }
   .btn-fetch:active { transform: translateY(0); }
   .btn-fetch:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
   .manual-toggle {
-    font-size: 0.78rem;
-    color: rgba(201,168,76,0.55);
-    text-align: center;
-    cursor: pointer;
-    margin-bottom: 14px;
-    text-decoration: underline;
-    letter-spacing: 0.08em;
+    font-size: 0.78rem; color: rgba(201,168,76,0.55);
+    text-align: center; cursor: pointer;
+    margin-bottom: 14px; text-decoration: underline; letter-spacing: 0.08em;
   }
   .manual-panel {
-    display: none;
-    width: 100%; max-width: 420px;
+    display: none; width: 100%; max-width: 420px;
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(201,168,76,0.18);
-    border-radius: 12px;
-    padding: 16px 18px;
-    margin-bottom: 18px;
+    border-radius: 12px; padding: 16px 18px; margin-bottom: 18px;
   }
   .manual-panel.open { display: block; }
   .manual-panel label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.68rem; letter-spacing: 0.15em;
-    color: var(--gold);
-    display: block; margin-bottom: 5px; margin-top: 12px;
+    font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.15em;
+    color: var(--gold); display: block; margin-bottom: 5px; margin-top: 12px;
   }
   .manual-panel label:first-child { margin-top: 0; }
   .manual-panel input {
-    width: 100%;
-    background: rgba(201,168,76,0.07);
-    border: 1px solid rgba(201,168,76,0.28);
-    border-radius: 7px;
-    padding: 9px 12px;
-    color: var(--cream);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    outline: none;
+    width: 100%; background: rgba(201,168,76,0.07);
+    border: 1px solid rgba(201,168,76,0.28); border-radius: 7px;
+    padding: 9px 12px; color: var(--cream);
+    font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; outline: none;
   }
   .manual-panel input:focus { border-color: var(--gold); }
   .btn-apply {
-    width: 100%; margin-top: 12px;
-    padding: 10px;
+    width: 100%; margin-top: 12px; padding: 10px;
     background: rgba(201,168,76,0.12);
-    border: 1px solid rgba(201,168,76,0.35);
-    border-radius: 7px;
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem; letter-spacing: 0.15em;
-    color: var(--gold-light);
-    cursor: pointer;
+    border: 1px solid rgba(201,168,76,0.35); border-radius: 7px;
+    font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.15em;
+    color: var(--gold-light); cursor: pointer;
   }
 
-  /* ── CARD ── */
+  /* ── CARD ─────────────────────────────────────────────────────── */
   #card-wrapper { width: 100%; max-width: 420px; margin-bottom: 20px; }
 
   #rate-card {
     width: 100%;
     aspect-ratio: 9/16;
-    background: linear-gradient(160deg, #2c1002 0%, #1a0800 40%, #0d0400 100%);
     border-radius: 20px;
     position: relative;
     overflow: hidden;
@@ -142,98 +106,101 @@
     align-items: center;
     justify-content: space-between;
     padding: 28px 22px 24px;
+    /* Solid fallback bg so html2canvas never shows white */
+    background-color: #150600;
   }
-  #rate-card::before {
-    content: '';
-    position: absolute; inset: 0; border-radius: 20px; padding: 2px;
-    background: linear-gradient(135deg, #f0d080, #8b6914, #f0d080, #8b6914, #f0d080);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude;
-    pointer-events: none;
+
+  /* Layer 1: dark gradient bg — real div, not ::before */
+  .card-bg {
+    position: absolute; inset: 0; border-radius: 20px;
+    background: linear-gradient(160deg, #2c1002 0%, #1a0800 40%, #0d0400 100%);
+    z-index: 0;
   }
-  #rate-card::after {
-    content: '';
-    position: absolute; inset: 0;
+  /* Layer 2: warm glow — real div, not ::after */
+  .card-glow {
+    position: absolute; inset: 0; border-radius: 20px;
     background:
-      radial-gradient(circle at 20% 25%, rgba(201,168,76,0.07) 0%, transparent 50%),
-      radial-gradient(circle at 80% 75%, rgba(201,168,76,0.06) 0%, transparent 50%);
-    pointer-events: none;
+      radial-gradient(ellipse at 30% 20%, rgba(201,168,76,0.13) 0%, transparent 55%),
+      radial-gradient(ellipse at 70% 80%, rgba(201,168,76,0.10) 0%, transparent 55%);
+    z-index: 1;
   }
-  .corner { position: absolute; width: 44px; height: 44px; opacity: 0.45; }
+  /* Layer 3: solid gold border — simple border, no mask tricks */
+  .card-border {
+    position: absolute; inset: 0; border-radius: 20px;
+    border: 2px solid #c9a84c;
+    z-index: 2; pointer-events: none;
+  }
+
+  /* Corners above border */
+  .corner { position: absolute; width: 44px; height: 44px; opacity: 0.65; z-index: 3; }
   .corner svg { width: 100%; height: 100%; }
   .corner.tl { top: 10px; left: 10px; }
   .corner.tr { top: 10px; right: 10px; transform: scaleX(-1); }
   .corner.bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
   .corner.br { bottom: 10px; right: 10px; transform: scale(-1); }
 
-  .card-top { display: flex; flex-direction: column; align-items: center; z-index: 1; }
-  .logo-icon { font-size: 2rem; color: var(--gold-light); margin-bottom: 2px; }
+  /* Content above all background layers */
+  .card-top, .card-mid, .card-bottom {
+    position: relative; z-index: 4; width: 100%;
+  }
+
+  .card-top { display: flex; flex-direction: column; align-items: center; }
+  .logo-icon { font-size: 2rem; color: #f0d080; margin-bottom: 2px; }
   .shop-name {
-    font-family: 'Cinzel', serif;
-    font-size: 2rem; font-weight: 900;
-    color: var(--gold-light); letter-spacing: 0.1em;
-    text-shadow: 0 0 24px rgba(201,168,76,0.6), 0 2px 4px rgba(0,0,0,0.8);
-    line-height: 1;
+    font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 900;
+    color: #f0d080; letter-spacing: 0.1em; line-height: 1;
   }
   .divider {
     width: 80%; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    background: linear-gradient(90deg, transparent, #c9a84c, transparent);
     margin: 9px 0;
   }
   .date-badge {
-    font-family: 'Cinzel', serif;
-    font-size: 0.7rem; letter-spacing: 0.18em;
-    color: var(--gold);
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.28);
+    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.18em;
+    color: #c9a84c;
+    background-color: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.38);
     border-radius: 20px; padding: 3px 14px;
   }
 
-  .card-mid { z-index: 1; text-align: center; width: 100%; }
+  .card-mid { text-align: center; }
   .section-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.68rem; letter-spacing: 0.22em;
-    color: var(--gold); margin-bottom: 9px;
+    font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.22em;
+    color: #c9a84c; margin-bottom: 9px;
   }
   .rate-row {
     display: flex; align-items: center; justify-content: space-between;
-    background: rgba(201,168,76,0.07);
-    border: 1px solid rgba(201,168,76,0.17);
+    background-color: rgba(201,168,76,0.09);
+    border: 1px solid rgba(201,168,76,0.22);
     border-radius: 9px; padding: 11px 16px; margin-bottom: 7px;
   }
   .rate-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.72rem; letter-spacing: 0.08em;
-    color: var(--gold); text-align: left; line-height: 1.35;
+    font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.08em;
+    color: #c9a84c; text-align: left; line-height: 1.35;
   }
+  .rate-label span { font-size: 0.6rem; opacity: 0.7; }
   .rate-value {
-    font-family: 'Cinzel', serif;
-    font-size: 1.28rem; font-weight: 700;
-    color: var(--gold-light);
-    text-shadow: 0 0 12px rgba(201,168,76,0.45);
+    font-family: 'Cinzel', serif; font-size: 1.28rem; font-weight: 700;
+    color: #f0d080;
   }
 
-  .card-bottom { z-index: 1; text-align: center; width: 100%; }
-  .address { font-size: 0.85rem; color: var(--cream); opacity: 0.82; line-height: 1.5; }
+  .card-bottom { text-align: center; }
+  .address { font-size: 0.85rem; color: #f5e6c8; line-height: 1.5; }
   .phone {
-    font-family: 'Cinzel', serif;
-    font-size: 1.05rem; font-weight: 600;
-    color: var(--gold-light); letter-spacing: 0.1em; margin-top: 3px;
+    font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 600;
+    color: #f0d080; letter-spacing: 0.1em; margin-top: 3px;
   }
 
+  /* ── SHARE BUTTON ── */
   .btn-share {
-    width: 100%; max-width: 420px;
-    padding: 14px;
-    border: 2px solid var(--gold); border-radius: 10px;
-    background: transparent;
-    font-family: 'Cinzel', serif;
-    font-size: 0.82rem; font-weight: 700; letter-spacing: 0.18em;
-    color: var(--gold-light);
+    width: 100%; max-width: 420px; padding: 14px;
+    border: 2px solid var(--gold); border-radius: 10px; background: transparent;
+    font-family: 'Cinzel', serif; font-size: 0.82rem; font-weight: 700;
+    letter-spacing: 0.18em; color: var(--gold-light);
     cursor: pointer; transition: all 0.2s;
     display: flex; align-items: center; justify-content: center; gap: 10px;
   }
   .btn-share:hover { background: rgba(201,168,76,0.1); transform: translateY(-1px); }
-
   .note {
     font-size: 0.75rem; color: rgba(201,168,76,0.45);
     text-align: center; margin-top: 12px;
@@ -247,13 +214,12 @@
 <p class="subtitle">Daily Rate Card Generator</p>
 
 <div id="status-bar">Tap below to fetch today's live gold rates.</div>
-
 <button class="btn-fetch" id="fetch-btn" onclick="fetchRates()">⟳ &nbsp;FETCH LIVE RATES — DPGOLD.IN</button>
 
 <div class="manual-toggle" onclick="toggleManual()">✎ Enter rates manually instead</div>
 <div class="manual-panel" id="manual-panel">
-  <label>24K GOLD — ₹ per 10 grams</label>
-  <input type="number" id="m-g24" placeholder="e.g. 158500" />
+  <label>24K GOLD — ₹ per gram</label>
+  <input type="number" id="m-g24" placeholder="e.g. 15850" />
   <label>SILVER — ₹ per kg (1000g)</label>
   <input type="number" id="m-silver" placeholder="e.g. 95000" />
   <button class="btn-apply" onclick="applyManual()">✔ APPLY RATES TO CARD</button>
@@ -261,10 +227,17 @@
 
 <div id="card-wrapper">
   <div id="rate-card">
-    <div class="corner tl"><svg viewBox="0 0 50 50" fill="none"><path d="M5 45 L5 5 L45 5" stroke="#c9a84c" stroke-width="2"/><circle cx="5" cy="5" r="3" fill="#c9a84c"/></svg></div>
-    <div class="corner tr"><svg viewBox="0 0 50 50" fill="none"><path d="M5 45 L5 5 L45 5" stroke="#c9a84c" stroke-width="2"/><circle cx="5" cy="5" r="3" fill="#c9a84c"/></svg></div>
-    <div class="corner bl"><svg viewBox="0 0 50 50" fill="none"><path d="M5 45 L5 5 L45 5" stroke="#c9a84c" stroke-width="2"/><circle cx="5" cy="5" r="3" fill="#c9a84c"/></svg></div>
-    <div class="corner br"><svg viewBox="0 0 50 50" fill="none"><path d="M5 45 L5 5 L45 5" stroke="#c9a84c" stroke-width="2"/><circle cx="5" cy="5" r="3" fill="#c9a84c"/></svg></div>
+
+    <!-- Real background divs — html2canvas renders these correctly -->
+    <div class="card-bg"></div>
+    <div class="card-glow"></div>
+    <div class="card-border"></div>
+
+    <!-- Corner ornaments -->
+    <div class="corner tl"><svg viewBox="0 0 50 50" fill="none"><path d="M5 45 L5 5 L45 5" stroke="#c9a84c" stroke-width="2.5"/><circle cx="5" cy="5" r="3" fill="#c9a84c"/></svg></div>
+    <div class="corner tr"><svg viewBox="0 0 50 50" fill="none"><path d="M5 45 L5 5 L45 5" stroke="#c9a84c" stroke-width="2.5"/><circle cx="5" cy="5" r="3" fill="#c9a84c"/></svg></div>
+    <div class="corner bl"><svg viewBox="0 0 50 50" fill="none"><path d="M5 45 L5 5 L45 5" stroke="#c9a84c" stroke-width="2.5"/><circle cx="5" cy="5" r="3" fill="#c9a84c"/></svg></div>
+    <div class="corner br"><svg viewBox="0 0 50 50" fill="none"><path d="M5 45 L5 5 L45 5" stroke="#c9a84c" stroke-width="2.5"/><circle cx="5" cy="5" r="3" fill="#c9a84c"/></svg></div>
 
     <div class="card-top">
       <div class="logo-icon">♛</div>
@@ -276,21 +249,21 @@
     <div class="card-mid">
       <div class="section-label">✦ Today's Gold Rates ✦</div>
       <div class="rate-row">
-        <div class="rate-label">24 Carat Gold<br><span style="font-size:0.6rem;opacity:0.65">Per Gram</span></div>
+        <div class="rate-label">24 Carat Gold<br><span>Per Gram</span></div>
         <div class="rate-value" id="card-24k">₹ —</div>
       </div>
       <div class="rate-row">
-        <div class="rate-label">22 Carat Gold<br><span style="font-size:0.6rem;opacity:0.65">Per Gram</span></div>
+        <div class="rate-label">22 Carat Gold<br><span>Per Gram</span></div>
         <div class="rate-value" id="card-22k">₹ —</div>
       </div>
       <div class="rate-row">
-        <div class="rate-label">22 Carat Gold<br><span style="font-size:0.6rem;opacity:0.65">8 Grams</span></div>
+        <div class="rate-label">22 Carat Gold<br><span>8 Grams</span></div>
         <div class="rate-value" id="card-22k-8g">₹ —</div>
       </div>
       <div style="margin-top:7px">
         <div class="section-label" style="margin-top:8px">✦ Silver ✦</div>
         <div class="rate-row">
-          <div class="rate-label">Silver<br><span style="font-size:0.6rem;opacity:0.65">Per 10 Grams</span></div>
+          <div class="rate-label">Silver<br><span>Per 10 Grams</span></div>
           <div class="rate-value" id="card-silver">₹ —</div>
         </div>
       </div>
@@ -301,6 +274,7 @@
       <div class="address">📍 Jagilanka Vaari Veedhi, Narsapuram</div>
       <div class="phone">☎ 7773877759</div>
     </div>
+
   </div>
 </div>
 
@@ -310,7 +284,7 @@
   </svg>
   SHARE ON WHATSAPP STATUS
 </button>
-<p class="note">Image downloads to your phone. Open WhatsApp → Status → ＋ → Photo &amp; Video to post.</p>
+<p class="note">Tap Share → choose WhatsApp → post as your Status.</p>
 
 <script>
   function todayStr() {
@@ -318,19 +292,17 @@
     return String(n.getDate()).padStart(2,'0') + '/' +
            String(n.getMonth()+1).padStart(2,'0') + '/' + n.getFullYear();
   }
-  document.getElementById('card-date').textContent = "" + todayStr();
+  document.getElementById('card-date').textContent = "TODAY'S GOLD RATE · " + todayStr();
 
   function inr(n) { return '₹' + Math.round(n).toLocaleString('en-IN'); }
 
-  function applyToCard(gold24per10g, silverPerKg) {
-    const g24g = gold24per10g;
-    const g22g = g24g * (22 / 24);
-    document.getElementById('card-24k').textContent    = inr(g24g);
-    document.getElementById('card-22k').textContent    = inr(g22g);
-    document.getElementById('card-22k-8g').textContent = inr(g22g * 8);
+  function applyToCard(g24perGram, silverPerKg) {
+    const g22 = g24perGram * (22 / 24);
+    document.getElementById('card-24k').textContent    = inr(g24perGram);
+    document.getElementById('card-22k').textContent    = inr(g22);
+    document.getElementById('card-22k-8g').textContent = inr(g22 * 8);
     document.getElementById('card-silver').textContent = silverPerKg
-      ? inr(silverPerKg / 100)
-      : '₹ —';
+      ? inr(silverPerKg / 100) : '₹ —';
   }
 
   async function fetchRates() {
@@ -339,8 +311,7 @@
     btn.disabled = true;
     status.textContent = '⏳ Fetching live rates from dpgold.in…';
 
-    const dots = ['· ', '·· ', '···'];
-    let di = 0;
+    const dots = ['· ', '·· ', '···']; let di = 0;
     const dotTimer = setInterval(() => {
       ['card-24k','card-22k','card-22k-8g','card-silver'].forEach(id => {
         document.getElementById(id).textContent = dots[di % 3];
@@ -376,7 +347,6 @@
         if (id === 289) silverPerKg = bid;
       });
 
-      // Name-based fallback
       if (!gold24per10g) {
         lines.forEach(line => {
           const up = line.toUpperCase();
@@ -398,10 +368,9 @@
       applyToCard(gold24per10g, silverPerKg);
 
       const now = new Date();
-      const timeStr = String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
-      status.textContent = '✅ Live rates loaded · ' + todayStr() + ' ' + timeStr + ' · dpgold.in (MCX)';
+      const t = String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+      status.textContent = '✅ Live rates loaded · ' + todayStr() + ' ' + t + ' · dpgold.in (MCX)';
 
-      // Pre-render card image silently in background — share tap will be instant
       setTimeout(prerenderCard, 400);
 
     } catch(err) {
@@ -409,8 +378,7 @@
       ['card-24k','card-22k','card-22k-8g','card-silver'].forEach(id => {
         document.getElementById(id).textContent = '₹ —';
       });
-      console.error('dpgold error:', err.message);
-      status.textContent = '⚠ Could not fetch rates. Please enter manually ↓ or retry.';
+      status.textContent = '⚠ Could not fetch rates. Enter manually ↓ or retry.';
     }
     btn.disabled = false;
   }
@@ -422,21 +390,27 @@
   function applyManual() {
     const g24 = parseFloat(document.getElementById('m-g24').value);
     const sv  = parseFloat(document.getElementById('m-silver').value);
-    if (!g24) { alert('Please enter 24K gold rate (per 10 grams)'); return; }
+    if (!g24) { alert('Please enter 24K gold rate (per gram)'); return; }
     applyToCard(g24, sv || 0);
     document.getElementById('status-bar').textContent = '✔ Manual rates applied to card.';
-    setTimeout(prerenderCard, 400);
     document.getElementById('manual-panel').classList.remove('open');
+    setTimeout(prerenderCard, 400);
   }
 
-  // ── Pre-rendered blob stored here after rates load ──────────────
+  // ── Pre-render card silently after rates load ─────────────────────
+  // iOS Safari needs navigator.share() called with zero awaits before it.
+  // Pre-building the blob here means shareCard() reaches share() instantly.
   let readyBlob = null;
 
   async function prerenderCard() {
     readyBlob = null;
     try {
       const canvas = await html2canvas(document.getElementById('rate-card'), {
-        scale: 3, useCORS: true, backgroundColor: null, logging: false
+        scale: 3,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: '#150600',  // explicit solid dark bg — never transparent/white
+        logging: false
       });
       readyBlob = await new Promise((res, rej) =>
         canvas.toBlob(b => b ? res(b) : rej(new Error('toBlob failed')), 'image/png')
@@ -444,20 +418,17 @@
     } catch(e) { console.warn('Pre-render failed:', e); }
   }
 
-  // ── Share: blob is already ready so share fires instantly on tap ──
-  // iOS Safari requires navigator.share() to be called with NO awaits before it.
-  // Pre-rendering the image in advance solves this completely.
   async function shareCard() {
     const btn = document.querySelector('.btn-share');
     const origHTML = btn.innerHTML;
 
-    // If not pre-rendered yet, render now with a loading state
     if (!readyBlob) {
       btn.innerHTML = '⏳ Preparing image…';
       btn.style.pointerEvents = 'none';
       try {
         const canvas = await html2canvas(document.getElementById('rate-card'), {
-          scale: 3, useCORS: true, backgroundColor: null, logging: false
+          scale: 3, useCORS: true, allowTaint: true,
+          backgroundColor: '#150600', logging: false
         });
         readyBlob = await new Promise((res, rej) =>
           canvas.toBlob(b => b ? res(b) : rej(new Error('toBlob failed')), 'image/png')
@@ -474,14 +445,9 @@
 
     const file = new File([readyBlob], 'rani-gold-rate.png', { type: 'image/png' });
 
-    // On iOS: navigator.share must NOT have any awaits before it in this call stack.
-    // Since readyBlob is pre-built, we reach here synchronously from the tap — iOS allows it.
     if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
       navigator.share({ title: "Rani Gold — Today's Rate", files: [file] })
-        .catch(err => {
-          if (err.name === 'AbortError') return; // user cancelled — fine
-          downloadImage(); // share failed, fall back to download
-        });
+        .catch(err => { if (err.name !== 'AbortError') downloadImage(); });
     } else {
       downloadImage();
     }
@@ -498,7 +464,6 @@
     }
   }
 
-  // Auto-fetch on page load
   fetchRates();
 </script>
 </body>
