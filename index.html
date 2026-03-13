@@ -401,6 +401,9 @@
       const timeStr = String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
       status.textContent = '✅ Live rates loaded · ' + todayStr() + ' ' + timeStr + ' · dpgold.in (MCX)';
 
+      // Pre-render card image silently in background — share tap will be instant
+      setTimeout(prerenderCard, 400);
+
     } catch(err) {
       clearInterval(dotTimer);
       ['card-24k','card-22k','card-22k-8g','card-silver'].forEach(id => {
@@ -422,66 +425,76 @@
     if (!g24) { alert('Please enter 24K gold rate (per 10 grams)'); return; }
     applyToCard(g24, sv || 0);
     document.getElementById('status-bar').textContent = '✔ Manual rates applied to card.';
+    setTimeout(prerenderCard, 400);
     document.getElementById('manual-panel').classList.remove('open');
   }
 
-  // Convert canvas.toBlob (callback) into a Promise so we can await it properly
-  function canvasToBlob(canvas) {
-    return new Promise((resolve, reject) => {
-      try {
-        canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error('toBlob failed')), 'image/png');
-      } catch(e) { reject(e); }
-    });
+  // ── Pre-rendered blob stored here after rates load ──────────────
+  let readyBlob = null;
+
+  async function prerenderCard() {
+    readyBlob = null;
+    try {
+      const canvas = await html2canvas(document.getElementById('rate-card'), {
+        scale: 3, useCORS: true, backgroundColor: null, logging: false
+      });
+      readyBlob = await new Promise((res, rej) =>
+        canvas.toBlob(b => b ? res(b) : rej(new Error('toBlob failed')), 'image/png')
+      );
+    } catch(e) { console.warn('Pre-render failed:', e); }
   }
 
+  // ── Share: blob is already ready so share fires instantly on tap ──
+  // iOS Safari requires navigator.share() to be called with NO awaits before it.
+  // Pre-rendering the image in advance solves this completely.
   async function shareCard() {
     const btn = document.querySelector('.btn-share');
-    const orig = btn.innerHTML;
-    btn.innerHTML = '⏳ Generating image…';
-    btn.style.pointerEvents = 'none';
+    const origHTML = btn.innerHTML;
 
-    try {
-      const card = document.getElementById('rate-card');
-      const canvas = await html2canvas(card, {
-        scale: 3, useCORS: true,
-        backgroundColor: null, logging: false
-      });
-
-      // Await the blob properly — no nested async callbacks
-      const blob = await canvasToBlob(canvas);
-      const file = new File([blob], 'rani-gold-rate.png', { type: 'image/png' });
-
-      // Try native share (works on Android Chrome & iOS Safari when served over HTTPS)
-      let shared = false;
-      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-        try {
-          await navigator.share({ title: "Rani Gold — Today's Rate", files: [file] });
-          shared = true;
-        } catch(shareErr) {
-          // User cancelled (AbortError) or share failed — fall through to download
-          if (shareErr.name !== 'AbortError') console.warn('Share failed:', shareErr.message);
-        }
+    // If not pre-rendered yet, render now with a loading state
+    if (!readyBlob) {
+      btn.innerHTML = '⏳ Preparing image…';
+      btn.style.pointerEvents = 'none';
+      try {
+        const canvas = await html2canvas(document.getElementById('rate-card'), {
+          scale: 3, useCORS: true, backgroundColor: null, logging: false
+        });
+        readyBlob = await new Promise((res, rej) =>
+          canvas.toBlob(b => b ? res(b) : rej(new Error('toBlob failed')), 'image/png')
+        );
+      } catch(e) {
+        btn.innerHTML = origHTML;
+        btn.style.pointerEvents = '';
+        alert('Could not generate image. Please try again.');
+        return;
       }
-
-      // Fallback: download the image, then open WhatsApp
-      if (!shared) {
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'rani-gold-' + todayStr().replace(/\//g, '-') + '.png';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        setTimeout(() => URL.revokeObjectURL(url), 1000);
-        setTimeout(() => window.open('whatsapp://app', '_blank'), 800);
-      }
-
-    } catch(e) {
-      console.error('shareCard error:', e);
-      alert('Could not generate image. Please try again.');
-    } finally {
-      btn.innerHTML = orig;
+      btn.innerHTML = origHTML;
       btn.style.pointerEvents = '';
+    }
+
+    const file = new File([readyBlob], 'rani-gold-rate.png', { type: 'image/png' });
+
+    // On iOS: navigator.share must NOT have any awaits before it in this call stack.
+    // Since readyBlob is pre-built, we reach here synchronously from the tap — iOS allows it.
+    if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+      navigator.share({ title: "Rani Gold — Today's Rate", files: [file] })
+        .catch(err => {
+          if (err.name === 'AbortError') return; // user cancelled — fine
+          downloadImage(); // share failed, fall back to download
+        });
+    } else {
+      downloadImage();
+    }
+
+    function downloadImage() {
+      const url = URL.createObjectURL(readyBlob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'rani-gold-' + todayStr().replace(/\//g, '-') + '.png';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
     }
   }
 
