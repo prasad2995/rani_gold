@@ -17,7 +17,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: radial-gradient(ellipse at center, #2a1005 0%, #0d0500 100%);
+    background: radial-gradient(ellipse at center, #5c1a1a 0%, #2a0808 100%);
     min-height: 100vh;
     font-family: 'Cormorant Garamond', serif;
     color: var(--cream);
@@ -107,13 +107,13 @@
     justify-content: space-between;
     padding: 28px 22px 24px;
     /* Solid fallback bg so html2canvas never shows white */
-    background-color: #150600;
+    background-color: #2a0808;
   }
 
   /* Layer 1: dark gradient bg — real div, not ::before */
   .card-bg {
     position: absolute; inset: 0; border-radius: 20px;
-    background: linear-gradient(160deg, #2c1002 0%, #1a0800 40%, #0d0400 100%);
+    background: linear-gradient(160deg, #7a1c1c 0%, #4a0f0f 40%, #2a0808 100%);
     z-index: 0;
   }
   /* Layer 2: warm glow — real div, not ::after */
@@ -409,7 +409,7 @@
         scale: 3,
         useCORS: true,
         allowTaint: true,
-        backgroundColor: '#150600',  // explicit solid dark bg — never transparent/white
+        backgroundColor: '#2a0808',  // explicit solid dark bg — never transparent/white
         logging: false
       });
       readyBlob = await new Promise((res, rej) =>
@@ -428,7 +428,7 @@
       try {
         const canvas = await html2canvas(document.getElementById('rate-card'), {
           scale: 3, useCORS: true, allowTaint: true,
-          backgroundColor: '#150600', logging: false
+          backgroundColor: '#2a0808', logging: false
         });
         readyBlob = await new Promise((res, rej) =>
           canvas.toBlob(b => b ? res(b) : rej(new Error('toBlob failed')), 'image/png')
